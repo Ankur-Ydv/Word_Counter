@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Word Counter</title>
+        <style>
+            body{
+                background-image: linear-gradient(120deg,rgb(214, 144, 144),rgb(161, 85, 161),rgb(236, 183, 103));
+                background-repeat: no-repeat;
+                padding: 100px;
+            }
+            h1{
+                text-align: center;
+                background-color: rgb(67, 3, 109);
+                color: white;
+                font-display: bold;
+                padding: 10px;
+                margin: 0px;
+            }
+            #textbox{
+                width: 98.8%;
+                border-style: solid;
+                border-color: rgb(67, 3, 109);
+                border-width: 5px;
+            }
+            p{
+                text-align: center;
+                background-color: rgb(67, 3, 109);
+                color: white;
+                font-display: bold;
+                padding: 10px;
+                margin: 0px;
+                width: 97.5%;
+                border-style: solid;
+                border-color: rgb(67, 3, 109);
+                border-width: 5px;
+                font-size: 20px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Word and Character Counter</h1>
+        <textarea id="textbox" cols="30" rows="15"></textarea>
+        <p>
+            <span id="word">0</span> words and 
+            <span id="char">0</span> Characters
+        </p>
+        <script>
+            let textbox = document.getElementById("textbox");
+
+            textbox.addEventListener('input', function(){
+                var text = this.value;
+                let char = text.length;
+                document.getElementById("char").innerHTML = char;
+
+                text = text.trim();
+                let words = text.split(" ");
+                let cleanList = words.filter(function(elm){
+                    return elm != "";
+                })
+                document.getElementById("word").innerHTML = cleanList.length;
+            })
+        </script>
+    </body>
+</html>
